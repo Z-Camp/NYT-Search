@@ -24,8 +24,10 @@ if ($("#startYear").val() && $("#endYear").val()) {
           var title = responseArray[i].headline.main
           var author = responseArray[i].byline.original
           var releaseDate = responseArray[i].pub_date
+          var link = responseArray[i].web_url
             var release = releaseDate.split("T")
             $("#resultDiv").append(`
+            <div onclick="window.open('${link}')">
             Title: ${title}<br>
             Author: ${author}<br>
             Release Date: ${release[0]}
@@ -38,4 +40,3 @@ if ($("#startYear").val() && $("#endYear").val()) {
 
 $("#clearBtn").on("click", function(){
     $("#resultDiv").empty()});
-
